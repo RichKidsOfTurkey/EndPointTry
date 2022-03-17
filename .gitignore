@@ -126,3 +126,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# XE ignores 
+request_log.txt
+system_log.txt
