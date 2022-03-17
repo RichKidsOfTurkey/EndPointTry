@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+nfthtmls/main.html
 # Distribution / packaging
 .Python
 build/
