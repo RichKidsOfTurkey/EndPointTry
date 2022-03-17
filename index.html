@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+
+    var x;
+    async function sendWalletId()
+    {
+        try {
+            const resp = await window.solana.connect();
+            x = resp.publicKey.toString();
+            console.log(x);
+            // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo 
+        } catch (err) {
+            // { code: 4001, message: 'User rejected the request.' }
+        }
+    }
+
+    function shit()
+    {
+        var myRequest = "/requests?ssid=2&wId=" + x;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", myRequest);
+        xhttp.send();
+    }
+</script>
+
+<body onload="sendWalletId()">
+    <button onclick="shit()">bas</button>
+</body>
+</html>
