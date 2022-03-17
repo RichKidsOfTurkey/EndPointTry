@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<script>
-
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script>
     var x;
     async function sendWalletId()
     {
@@ -16,22 +13,78 @@
             const resp = await window.solana.connect();
             x = resp.publicKey.toString();
             console.log(x);
-            // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo 
+            // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo
         } catch (err) {
             // { code: 4001, message: 'User rejected the request.' }
         }
     }
 
-    function shit()
+    function get_walletId()
     {
         var myRequest = "/requests?ssid=2&wId=" + x;
         var xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+        document.getElementById("user-id").innerHTML =
+        this.responseText;
+        }
         xhttp.open("GET", myRequest);
         xhttp.send();
     }
-</script>
 
-<body onload="sendWalletId()">
-    <button onclick="shit()">bas</button>
-</body>
+  </script>
+  <style>
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+  .wrapper {
+    text-align: center;
+  }
+  .button {
+    position: absolute;
+    top: 50%;
+  }
+  .player-name{
+    font-size:30px;
+  }
+  </style>
+  <body onload="sendWalletId()">
+    <p id="user-id" style="text-align:center">
+      walletId
+    </p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-3">
+            <div class="card h-100">
+                <h2 class="player-name">Player Name</h2>
+                <th>Stat1</th>
+                <td>inside of stat1</td>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <div class="card h-100">
+                <p class="card-body">This card on the left of the other two cards, with a fixed height and scrolling.</p>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <div class="card h-100">
+                <p class="card-body">This card on the left of the other two cards, with a fixed height and scrolling.</p>
+            </div>
+        </div>
+        <div class="col col-md-3">
+            <div class="card h-100">
+                <p class="card-body">This card on the left of the other two cards, with a fixed height and scrolling.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="wrapper">
+  <button class= "button" onclick="get_walletId()" style="text-align:center">BAS BANA!!!</button>
+</div>
+
+
+  </body>
 </html>
